@@ -13,7 +13,7 @@ class MainButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        layer.cornerRadius = 5
+        layer.cornerRadius = 15
         clipsToBounds = true
         
         tintColor = UIColor.white

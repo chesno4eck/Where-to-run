@@ -16,12 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var buttonsStackView: UIStackView!
+    @IBOutlet weak var buttonsView: UIView!
     
     @IBAction func tabBarButtonPressed(_ sender: Any) {
-        buttonsStackView.isHidden = !buttonsStackView.isHidden
+        buttonsView.isHidden = !buttonsView.isHidden
     }
-    
-//    var points:[(Float,Float,String)] = [(65,8,"0:a6:ca:10:8a:42"),(65,7,"0:a6:ca:10:8a:4d"),(47,11,"0:a6:ca:10:b0:e2"),(95,28,"95,28,0:a6:ca:2d:7b:d2"),(97,20,"0:a6:ca:35:93:f2"),(41,11,"0:a6:ca:56:42:7d"),(89,12,"0:a6:ca:56:c:92"),(83,10,"0:a6:ca:56:c:e2"),(94,18,"0:a6:ca:56:e:72"),(75,9,"0:a6:ca:68:9d:a2"),(45,8,"0:a6:ca:68:a3:fd")]
     
     private var currentlyConnectedMacAdress:String? {didSet{
         if let mac = currentlyConnectedMacAdress {
@@ -35,24 +34,25 @@ class ViewController: UIViewController {
     
     // MARK: To remove
     private var historyMacAdresses:[String] = [] {didSet{
-        
+    
     }}
     //MARK: End to remove
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupScrollView()
+        setupGestureRecognizer()
+        
         writeToFile(value: "-----------\(Date())-----------")
+        startLocatingMe()
+    }
+    
+    private func setupScrollView(){
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 1.0
-        startLocatingMe()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(taps))
-        mapImageView.addGestureRecognizer(tap)
-        mapImageView.isUserInteractionEnabled = true
-        
     }
 
-    func highlightCurrentSector(){
+    private func highlightCurrentSector(){
         mapImageView.subviews.forEach { $0.removeFromSuperview() }
         
         if let point = AccessPoints().valuesArray.filter({ (_,_,m) -> Bool in
@@ -71,21 +71,14 @@ class ViewController: UIViewController {
         
     }
     
-    /*
-    func createAllPoints(){
-        for point in AccessPoints().valuesArray {
-            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
-                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
-                                            width: 160,
-                                            height: 160))
-            view.layer.cornerRadius = 80
-            view.layer.masksToBounds = true
-            view.backgroundColor = UIColor.blue
-            view.alpha = 0.4
-            mapImageView.addSubview(view)
-        }
+    
+    private func setupGestureRecognizer(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(taps))
+        mapImageView.addGestureRecognizer(tap)
+        mapImageView.isUserInteractionEnabled = true
     }
-    */
+    
+    
     @objc func taps(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             let tapVertical = sender.location(in: mapImageView).y / mapImageView.frame.height * 100 * scrollView.zoomScale
@@ -106,7 +99,6 @@ extension ViewController: UIScrollViewDelegate {
         return mapImageView
     }
 }
-
 
 extension ViewController {
     
@@ -135,14 +127,31 @@ extension ViewController {
         return (SSID:nil, MAC:nil)
     }
     
-//    private func writeToLog(){
-//        // Logging
-//        if let ssid = currentlyConnectedWifiData().SSID, let mac = currentlyConnectedWifiData().MAC {
-//            print("Вы подключены к точке \(ssid) с MAC адресом: \(mac)")
-//        } else {
-//            print("Похоже, вы не подключены ни к какому wifi")
-//        }
-//        // Logging
-//    }
-
+// DEBUG ZONE
+    
+    /*
+    private func createAllPoints(){
+     for point in AccessPoints().valuesArray {
+     let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
+     y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
+     width: 160,
+     height: 160))
+     view.layer.cornerRadius = 80
+     view.layer.masksToBounds = true
+     view.backgroundColor = UIColor.blue
+     view.alpha = 0.4
+     mapImageView.addSubview(view)
+     }
+     }
+     */
+    
+    /*
+    private func writeToLog(){
+        if let ssid = currentlyConnectedWifiData().SSID, let mac = currentlyConnectedWifiData().MAC {
+            print("Вы подключены к точке \(ssid) с MAC адресом: \(mac)")
+        } else {
+            print("Похоже, вы не подключены ни к какому wifi")
+        }
+    }
+     */
 }
