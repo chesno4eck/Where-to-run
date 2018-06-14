@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     private var historyMacAdresses:[String] = [] {didSet{
         print(historyMacAdresses.last)
         writeToLog()
+        writeToFile(value: historyMacAdresses.last)
     }}
 
     override func viewDidLoad() {
