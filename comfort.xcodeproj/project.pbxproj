@@ -15,6 +15,7 @@
 		596EBD1120D25D27007D4E8A /* comfortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1020D25D27007D4E8A /* comfortUITests.swift */; };
 		596EBD1C20D25E0F007D4E8A /* MainMutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1B20D25E0F007D4E8A /* MainMutton.swift */; };
 		596EBD1E20D25E82007D4E8A /* UIColor+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1D20D25E82007D4E8A /* UIColor+Style.swift */; };
+		CB2FAEB620D290B300D6DA55 /* writeToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2FAEB520D290B300D6DA55 /* writeToFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		596EBD1220D25D27007D4E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		596EBD1B20D25E0F007D4E8A /* MainMutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMutton.swift; sourceTree = "<group>"; };
 		596EBD1D20D25E82007D4E8A /* UIColor+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Style.swift"; sourceTree = "<group>"; };
+		CB2FAEB520D290B300D6DA55 /* writeToFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = writeToFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				596EBD1B20D25E0F007D4E8A /* MainMutton.swift */,
 				596EBD1D20D25E82007D4E8A /* UIColor+Style.swift */,
 				596EBCFD20D25D25007D4E8A /* ViewController.swift */,
+				CB2FAEB520D290B300D6DA55 /* writeToFile.swift */,
 				596EBCFF20D25D25007D4E8A /* Main.storyboard */,
 				596EBD0220D25D27007D4E8A /* Assets.xcassets */,
 				596EBD0420D25D27007D4E8A /* LaunchScreen.storyboard */,
@@ -205,6 +208,7 @@
 			files = (
 				596EBCFE20D25D25007D4E8A /* ViewController.swift in Sources */,
 				596EBCFC20D25D25007D4E8A /* AppDelegate.swift in Sources */,
+				CB2FAEB620D290B300D6DA55 /* writeToFile.swift in Sources */,
 				596EBD1C20D25E0F007D4E8A /* MainMutton.swift in Sources */,
 				596EBD1E20D25E82007D4E8A /* UIColor+Style.swift in Sources */,
 			);
