@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bim-rr-yTz">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Куда бежать-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="comfort" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
+                                <rect key="frame" x="20" y="84" width="374" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-OS-DHU" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="gtD-CK-Q0g"/>
+                                        </constraints>
+                                        <state key="normal" title="Найти туалет"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-TZ-fPf" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                        <state key="normal" title="Найти кухню"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-09-JSR" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="374" height="40"/>
+                                        <state key="normal" title="Найти лифт"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="centerY" secondItem="r84-0r-uDa" secondAttribute="centerY" id="KfD-xN-Q98"/>
+                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="NaS-of-FeQ"/>
+                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="leading" secondItem="S0N-09-JSR" secondAttribute="leading" id="T2P-iX-msf"/>
+                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" id="lDF-OX-Kkq"/>
+                                </constraints>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-rw-KE6">
+                                <rect key="frame" x="0.0" y="259" width="414" height="477"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14 crop" translatesAutoresizingMaskIntoConstraints="NO" id="cah-HI-IH4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cah-HI-IH4" secondAttribute="bottom" id="HNW-D3-33B"/>
+                                    <constraint firstItem="cah-HI-IH4" firstAttribute="top" secondItem="Eyb-rw-KE6" secondAttribute="top" id="M13-L5-qHl"/>
+                                    <constraint firstItem="cah-HI-IH4" firstAttribute="centerX" secondItem="Eyb-rw-KE6" secondAttribute="centerX" id="OTM-cz-lBx"/>
+                                    <constraint firstItem="cah-HI-IH4" firstAttribute="leading" secondItem="Eyb-rw-KE6" secondAttribute="leading" id="tdW-5I-xsu"/>
+                                    <constraint firstAttribute="trailing" secondItem="cah-HI-IH4" secondAttribute="trailing" id="x9S-jC-aNr"/>
+                                    <constraint firstItem="cah-HI-IH4" firstAttribute="centerY" secondItem="Eyb-rw-KE6" secondAttribute="centerY" id="zCw-F9-4YM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aog-6N-opF"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="r84-0r-uDa" secondAttribute="bottom" constant="15" id="4mt-Eg-9qV"/>
+                            <constraint firstItem="r84-0r-uDa" firstAttribute="centerX" secondItem="Eyb-rw-KE6" secondAttribute="centerX" id="Gel-7e-q75"/>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="259" id="LUZ-ff-wFt"/>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="R5M-kj-NbY"/>
+                            <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="cG7-px-igd"/>
+                            <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rNJ-sK-5fR"/>
+                            <constraint firstAttribute="trailing" secondItem="Eyb-rw-KE6" secondAttribute="trailing" id="rr7-ZV-Oc5"/>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uya-QT-85F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Куда бежать" id="d3v-Hl-W9B"/>
+                    <connections>
+                        <outlet property="mapImageView" destination="cah-HI-IH4" id="bsn-NN-GoP"/>
+                        <outlet property="scrollView" destination="Eyb-rw-KE6" id="C6j-pU-hsC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="132.88043478260872"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qub-kK-LXb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bim-rr-yTz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tOP-qK-VFR">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="p4i-5d-FLH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSe-Sm-evk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="14 crop" width="6035" height="3371"/>
+    </resources>
+</document>
