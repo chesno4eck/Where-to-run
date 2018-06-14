@@ -19,37 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
-                                <rect key="frame" x="20" y="84" width="374" height="160"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-OS-DHU" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="gtD-CK-Q0g"/>
-                                        </constraints>
-                                        <state key="normal" title="Найти туалет"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-TZ-fPf" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="40"/>
-                                        <state key="normal" title="Найти кухню"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-09-JSR" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="374" height="40"/>
-                                        <state key="normal" title="Найти лифт"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="centerY" secondItem="r84-0r-uDa" secondAttribute="centerY" id="KfD-xN-Q98"/>
-                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="NaS-of-FeQ"/>
-                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="leading" secondItem="S0N-09-JSR" secondAttribute="leading" id="T2P-iX-msf"/>
-                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" id="lDF-OX-Kkq"/>
-                                </constraints>
-                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyb-rw-KE6">
-                                <rect key="frame" x="0.0" y="259" width="414" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14 crop" translatesAutoresizingMaskIntoConstraints="NO" id="cah-HI-IH4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -64,21 +38,52 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aog-6N-opF"/>
                                 </connections>
                             </scrollView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
+                                <rect key="frame" x="20" y="84" width="374" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-OS-DHU" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="gtD-CK-Q0g"/>
+                                        </constraints>
+                                        <state key="normal" title="Найти туалет"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-TZ-fPf" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="30"/>
+                                        <state key="normal" title="Найти кухню"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-09-JSR" customClass="MainButton" customModule="comfort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="374" height="40"/>
+                                        <state key="normal" title="Найти лифт"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="centerY" secondItem="r84-0r-uDa" secondAttribute="centerY" id="KfD-xN-Q98"/>
+                                    <constraint firstAttribute="height" constant="150" id="N9C-Ba-74B"/>
+                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="NaS-of-FeQ"/>
+                                    <constraint firstItem="6TD-TZ-fPf" firstAttribute="leading" secondItem="S0N-09-JSR" secondAttribute="leading" id="T2P-iX-msf"/>
+                                    <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" id="lDF-OX-Kkq"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="r84-0r-uDa" secondAttribute="bottom" constant="15" id="4mt-Eg-9qV"/>
-                            <constraint firstItem="r84-0r-uDa" firstAttribute="centerX" secondItem="Eyb-rw-KE6" secondAttribute="centerX" id="Gel-7e-q75"/>
-                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="259" id="LUZ-ff-wFt"/>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LUZ-ff-wFt"/>
+                            <constraint firstItem="Eyb-rw-KE6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OZf-ga-8Rv"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="R5M-kj-NbY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r84-0r-uDa" secondAttribute="trailing" constant="20" id="USq-ZI-Cgc"/>
+                            <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WfA-0E-fU9"/>
                             <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="cG7-px-igd"/>
+                            <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="heP-hJ-yt7"/>
                             <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rNJ-sK-5fR"/>
                             <constraint firstAttribute="trailing" secondItem="Eyb-rw-KE6" secondAttribute="trailing" id="rr7-ZV-Oc5"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uya-QT-85F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Куда бежать" id="d3v-Hl-W9B"/>
+                    <navigationItem key="navigationItem" title="Куда бежать" id="d3v-Hl-W9B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uli-Qh-9Yh"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapImageView" destination="cah-HI-IH4" id="bsn-NN-GoP"/>
                         <outlet property="scrollView" destination="Eyb-rw-KE6" id="C6j-pU-hsC"/>
