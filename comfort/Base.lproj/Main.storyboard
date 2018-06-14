@@ -40,28 +40,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aog-6N-opF"/>
                                 </connections>
                             </scrollView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
-                                <rect key="frame" x="20" y="84" width="96" height="150"/>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
+                                <rect key="frame" x="20" y="84" width="394" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-OS-DHU" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="70"/>
                                         <state key="normal" title="Найти туалет"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-TZ-fPf" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="96" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="7cQ-9V-MsI"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="90" width="394" height="70"/>
                                         <state key="normal" title="Найти кухню"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-09-JSR" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="110" width="96" height="40"/>
+                                        <rect key="frame" x="0.0" y="180" width="394" height="70"/>
                                         <state key="normal" title="Найти лифт"/>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" id="835-Ig-Tof"/>
                                     <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="FZZ-HC-V01"/>
+                                    <constraint firstAttribute="height" constant="250" id="dEr-AB-gj3"/>
                                     <constraint firstItem="6TD-TZ-fPf" firstAttribute="centerY" secondItem="r84-0r-uDa" secondAttribute="centerY" id="q1q-WL-SGx"/>
                                     <constraint firstItem="6TD-TZ-fPf" firstAttribute="leading" secondItem="S0N-09-JSR" secondAttribute="leading" id="r8S-mj-XaT"/>
                                 </constraints>
@@ -79,9 +78,9 @@
                             <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5eK-oW-Vqz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HEz-aV-a0R" secondAttribute="trailing" constant="10" id="BpA-dh-Wd4"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FQa-75-srg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="r84-0r-uDa" secondAttribute="bottom" constant="502" id="TOq-UR-5HL"/>
                             <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vfy-QW-3CB"/>
                             <constraint firstAttribute="trailing" secondItem="Eyb-rw-KE6" secondAttribute="trailing" id="fnf-dO-fcT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r84-0r-uDa" secondAttribute="trailing" id="frf-oo-2Aa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HEz-aV-a0R" secondAttribute="bottom" constant="10" id="jxf-VB-YIy"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kqt-nQ-DGK"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="te8-kg-Tb0"/>
@@ -89,9 +88,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Куда бежать" id="d3v-Hl-W9B">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uli-Qh-9Yh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uli-Qh-9Yh">
+                            <connections>
+                                <action selector="tabBarButtonPressed:" destination="BYZ-38-t0r" id="Lsm-A6-7vD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonsStackView" destination="r84-0r-uDa" id="c6d-ZG-8c3"/>
                         <outlet property="lbl" destination="HEz-aV-a0R" id="5Aa-fu-nBg"/>
                         <outlet property="mapImageView" destination="Xld-DB-4fL" id="HUO-L5-y0h"/>
                         <outlet property="scrollView" destination="Eyb-rw-KE6" id="C6j-pU-hsC"/>

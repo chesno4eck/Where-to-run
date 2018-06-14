@@ -11,13 +11,17 @@ import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapImageView: UIImageView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
+    @IBAction func tabBarButtonPressed(_ sender: Any) {
+        buttonsStackView.isHidden = !buttonsStackView.isHidden
+    }
     
-    var points:[(Float,Float,String)] = [(65,8,"0:a6:ca:10:8a:42"),(65,7,"0:a6:ca:10:8a:4d"),(47,11,"0:a6:ca:10:b0:e2"),(95,28,"95,28,0:a6:ca:2d:7b:d2"),(97,20,"0:a6:ca:35:93:f2"),(41,11,"0:a6:ca:56:42:7d"),(89,12,"0:a6:ca:56:c:92"),(83,10,"0:a6:ca:56:c:e2"),(94,18,"0:a6:ca:56:e:72"),(75,9,"0:a6:ca:68:9d:a2"),(45,8,"0:a6:ca:68:a3:fd")]
+//    var points:[(Float,Float,String)] = [(65,8,"0:a6:ca:10:8a:42"),(65,7,"0:a6:ca:10:8a:4d"),(47,11,"0:a6:ca:10:b0:e2"),(95,28,"95,28,0:a6:ca:2d:7b:d2"),(97,20,"0:a6:ca:35:93:f2"),(41,11,"0:a6:ca:56:42:7d"),(89,12,"0:a6:ca:56:c:92"),(83,10,"0:a6:ca:56:c:e2"),(94,18,"0:a6:ca:56:e:72"),(75,9,"0:a6:ca:68:9d:a2"),(45,8,"0:a6:ca:68:a3:fd")]
     
     private var currentlyConnectedMacAdress:String? {didSet{
         if let mac = currentlyConnectedMacAdress {
@@ -26,12 +30,15 @@ class ViewController: UIViewController {
             highlightCurrentSector()
         }
         }}
+    
     private var timer = Timer()
+    
+    // MARK: To remove
     private var historyMacAdresses:[String] = [] {didSet{
-        print(historyMacAdresses.last)
-        writeToLog()
+        
     }}
-
+    //MARK: End to remove
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         writeToFile(value: "-----------\(Date())-----------")
@@ -46,14 +53,17 @@ class ViewController: UIViewController {
     }
 
     func highlightCurrentSector(){
-        //mapImageView.subviews.forEach { $0.removeFromSuperview() }
-        if let point = points.filter({ (_,_,m) -> Bool in
+        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+        
+        if let point = AccessPoints().valuesArray.filter({ (_,_,m) -> Bool in
             m == currentlyConnectedMacAdress
         }).first {
-            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 40,
-                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 40,
-                                            width: 80,
-                                            height: 80))
+            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
+                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
+                                            width: 160,
+                                            height: 160))
+            view.layer.cornerRadius = 80
+            view.layer.masksToBounds = true
             view.backgroundColor = UIColor.blue
             view.alpha = 0.4
             mapImageView.addSubview(view)
@@ -62,12 +72,14 @@ class ViewController: UIViewController {
     }
     
     /*
-    func createPoints(){
-        for point in points {
-            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 40,
-                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 40,
-                                            width: 80,
-                                            height: 80))
+    func createAllPoints(){
+        for point in AccessPoints().valuesArray {
+            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
+                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
+                                            width: 160,
+                                            height: 160))
+            view.layer.cornerRadius = 80
+            view.layer.masksToBounds = true
             view.backgroundColor = UIColor.blue
             view.alpha = 0.4
             mapImageView.addSubview(view)
@@ -123,14 +135,14 @@ extension ViewController {
         return (SSID:nil, MAC:nil)
     }
     
-    private func writeToLog(){
-        // Logging
-        if let ssid = currentlyConnectedWifiData().SSID, let mac = currentlyConnectedWifiData().MAC {
-            print("Вы подключены к точке \(ssid) с MAC адресом: \(mac)")
-        } else {
-            print("Похоже, вы не подключены ни к какому wifi")
-        }
-        // Logging
-    }
+//    private func writeToLog(){
+//        // Logging
+//        if let ssid = currentlyConnectedWifiData().SSID, let mac = currentlyConnectedWifiData().MAC {
+//            print("Вы подключены к точке \(ssid) с MAC адресом: \(mac)")
+//        } else {
+//            print("Похоже, вы не подключены ни к какому wifi")
+//        }
+//        // Logging
+//    }
 
 }
