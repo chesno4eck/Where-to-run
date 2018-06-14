@@ -30,8 +30,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.minimumZoomScale = 0.4
-        scrollView.maximumZoomScale = 2.0
+        writeToFile(value: "-----------\(Date())-----------")
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 1.0
         startLocatingMe()
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(taps))
@@ -46,6 +47,10 @@ class ViewController: UIViewController {
             print("\(tapHorizont), \(tapVertical)")
             if let mac = currentlyConnectedMacAdress {
                 writeToFile(value: "\(tapHorizont), \(tapVertical), \(mac)")
+                let view = UIView(frame: CGRect(x: sender.location(in: mapImageView).x - 20, y: sender.location(in: mapImageView).y - 20, width: 40, height: 40))
+                view.backgroundColor = UIColor.red
+                view.alpha = 0.4
+                mapImageView.addSubview(view)
             }
         }
     }
