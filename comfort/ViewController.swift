@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
 
     func highlightCurrentSector(){
-        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+        //mapImageView.subviews.forEach { $0.removeFromSuperview() }
         if let point = points.filter({ (_,_,m) -> Bool in
             m == currentlyConnectedMacAdress
         }).first {
@@ -99,7 +99,7 @@ extension ViewController: UIScrollViewDelegate {
 extension ViewController {
     
     private func startLocatingMe(){
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.wifiIterator), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.wifiIterator), userInfo: nil, repeats: true)
     }
     
     @objc private func wifiIterator() {
