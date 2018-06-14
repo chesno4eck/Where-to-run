@@ -12,33 +12,42 @@ import SystemConfiguration.CaptiveNetwork
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapImageView: UIImageView!
     
     private var currentlyConnectedMacAdress:String? {didSet{
-        if currentlyConnectedMacAdress != nil {
-            historyMacAdresses.append(currentlyConnectedMacAdress!)
+        if let mac = currentlyConnectedMacAdress {
+            historyMacAdresses.append(mac)
+            lbl.text = mac
         }
         }}
     private var timer = Timer()
     private var historyMacAdresses:[String] = [] {didSet{
         print(historyMacAdresses.last)
         writeToLog()
-        writeToFile(value: historyMacAdresses.last)
     }}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 5.0
+        scrollView.minimumZoomScale = 0.4
+        scrollView.maximumZoomScale = 2.0
         startLocatingMe()
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(addPoint))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(taps))
         mapImageView.addGestureRecognizer(tap)
+        mapImageView.isUserInteractionEnabled = true
     }
 
-    @objc func addPoint() {
-        
+    @objc func taps(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            let tapVertical = sender.location(in: mapImageView).y / mapImageView.frame.height * 100 * scrollView.zoomScale
+            let tapHorizont = sender.location(in: mapImageView).x / mapImageView.frame.width * 100 * scrollView.zoomScale
+            print("\(tapHorizont), \(tapVertical)")
+            if let mac = currentlyConnectedMacAdress {
+                writeToFile(value: "\(tapHorizont), \(tapVertical), \(mac)")
+            }
+        }
     }
 }
 extension ViewController: UIScrollViewDelegate {
