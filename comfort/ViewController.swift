@@ -23,6 +23,26 @@ class ViewController: UIViewController {
         buttonsView.isHidden = !buttonsView.isHidden
     }
     
+    @IBAction func buttonToiletPressed(_ sender: Any) {
+        showPath(to: .toilet)
+        buttonsView.isHidden = true
+    }
+    @IBAction func buttonKitchenPressed(_ sender: Any) {
+        showPath(to: .kitchen)
+        buttonsView.isHidden = true
+    }
+    @IBAction func buttonLiftPressed(_ sender: Any) {
+        showPath(to: .lift)
+        buttonsView.isHidden = true
+    }
+    @IBAction func buttonRazdevalkaPressed(_ sender: Any) {
+        showPath(to: .razdevalra)
+        buttonsView.isHidden = true
+    }
+    
+    
+    
+    
     private var currentlyConnectedMacAdress:String? {didSet{
         if let mac = currentlyConnectedMacAdress {
             historyMacAdresses.append(mac)
@@ -48,6 +68,20 @@ class ViewController: UIViewController {
         //createAllPoints()
 //        insertMyLocationIntoMap(x: 11, y: 24)
         finder.findPath(from: Coordinates(x: 11, y: 7), to: .lift)
+    }
+    
+    func showPath(to poi: Point){
+        guard let mac = currentlyConnectedMacAdress,
+            let point = AccessPoints.valuesDict[mac] else {return}
+        let myCoordinates = Coordinates(x: point.0, y: point.1)
+        
+        if myCoordinates.x > 100 && myCoordinates.y > 100 {
+            return
+        }
+        let positionInMapX:Int = myCoordinates.x
+        let positionInMapY:Int = Int(myCoordinates.y/2)
+        
+        a(Coordinates(x: positionInMapX, y: positionInMapY), point: poi)
     }
     
     func a(_ myCoordinate: Coordinates, point: Point) {
