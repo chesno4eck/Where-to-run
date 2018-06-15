@@ -45,6 +45,8 @@ class ViewController: UIViewController {
         drawNet()
         startLocatingMe()
         //createAllPoints()
+        
+        insertMyLocationIntoMap(x: 11, y: 24)
     }
     
     func drawNet() {
@@ -86,6 +88,9 @@ class ViewController: UIViewController {
                     mapImageView.addSubview(view)
                 case "w": // way
                     view.backgroundColor = UIColor.windowsBlue
+                    mapImageView.addSubview(view)
+                case "s": // start
+                    view.backgroundColor = UIColor.black
                     mapImageView.addSubview(view)
                 default: break
                 }

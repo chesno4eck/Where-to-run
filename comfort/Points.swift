@@ -82,7 +82,29 @@ struct AccessPoints {
     ]
 }
 
-let netString = """
+func getMyLocationOnMap(x:Int,y:Int) -> (charNumber:Int, symbol:String) {
+    if x > 100 && y > 100 {
+        return (0,"s")
+    }
+    let net = netString.replacingOccurrences(of: "\n", with: "")
+    
+    let positionInMapRow:Int = x
+    let positionInMapString:Int = Int(y/2)
+    
+    print ("x: \(positionInMapRow) y: \(positionInMapString)")
+    
+    print ("will insert instead symbol:")
+    print(net[positionInMapRow * 100 + positionInMapString])
+    
+    return ((positionInMapRow * 100 + positionInMapString),"s")
+    
+}
+
+func putMyLocationOnTheNearestPath(){
+    
+}
+
+var netString = """
 
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
