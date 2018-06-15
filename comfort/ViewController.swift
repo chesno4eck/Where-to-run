@@ -50,6 +50,10 @@ class ViewController: UIViewController {
         finder.findPath(from: Coordinates(x: 11, y: 7), to: .lift)
     }
     
+    func a(_ myCoordinate: Coordinates, point: Point) {
+        
+    }
+    
     func drawNet() {
         mapImageView.subviews.forEach { $0.removeFromSuperview() }
         let net = netString.replacingOccurrences(of: "\n", with: "")

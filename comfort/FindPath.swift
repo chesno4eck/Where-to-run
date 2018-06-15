@@ -75,6 +75,46 @@ class PathFinder {
         return nil //no path
     }
 
+    func findTropa(from: Coordinates) -> [Coordinates]? {
+        let to = Point.spase
+        let maze1 = netString.replacingOccurrences(of: "\n", with: "")
+        
+        var maze: [Point] = maze1.map { return Point(rawValue: $0)! }
+        
+        var frontier = [Coordinates]()
+        frontier.append(from)
+        var cameFrom = [Coordinates: Coordinates]()
+        
+        while !frontier.isEmpty {
+            let current = frontier.removeFirst()
+            print("\(current.y) \(current.x)")
+            print(maze[current.y * 100 + current.x])
+            //            print("\n")
+            if maze[current.y * 100 + current.x] == to {
+                var pathPoint = current
+                var result: [Coordinates] = []
+                
+                while true {
+                    guard let point = cameFrom[pathPoint] else {
+                        break
+                    }
+                    pathPoint = point
+                    result.append(pathPoint)
+                }
+                return result
+            }
+            for neighbor in neighbors(current) {
+                if maze[neighbor.y * 100 + neighbor.x] == to {
+                    frontier.append(neighbor)
+                    cameFrom[neighbor] = current
+                }
+            }
+            maze[current.y * 100 + current.x] = .visited
+        }
+        
+        return nil //no path
+    }
+
     private func neighbors(_ point: Coordinates) -> [Coordinates] {
         var result = [Coordinates]()
         result.append(Coordinates(x: point.x - 1, y: point.y))
