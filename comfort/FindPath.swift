@@ -92,7 +92,7 @@ class PathFinder {
             //            print("\n")
             if maze[current.y * 100 + current.x] == to {
                 var pathPoint = current
-                var result: [Coordinates] = []
+                var result: [Coordinates] = [current]
                 
                 while true {
                     guard let point = cameFrom[pathPoint] else {
@@ -104,7 +104,7 @@ class PathFinder {
                 return result
             }
             for neighbor in neighbors(current) {
-                if maze[neighbor.y * 100 + neighbor.x] == to {
+                if maze[neighbor.y * 100 + neighbor.x] != .visited {
                     frontier.append(neighbor)
                     cameFrom[neighbor] = current
                 }

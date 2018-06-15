@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         if let mac = currentlyConnectedMacAdress {
             historyMacAdresses.append(mac)
             lbl.text = mac
-            highlightCurrentSector()
+      highlightCurrentSector()
         }
         }}
     
@@ -62,12 +62,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
-        setupGestureRecognizer()
-        drawNet()
+//        setupGestureRecognizer()
+//        drawNet()
         startLocatingMe()
         //createAllPoints()
 //        insertMyLocationIntoMap(x: 11, y: 24)
-        finder.findPath(from: Coordinates(x: 11, y: 7), to: .lift)
+//        finder.findPath(from: Coordinates(x: 11, y: 7), to: .lift)
+//        a(Coordinates(x: 99, y: 49), point: .coffee)
     }
     
     func showPath(to poi: Point){
@@ -85,7 +86,26 @@ class ViewController: UIViewController {
     }
     
     func a(_ myCoordinate: Coordinates, point: Point) {
-        
+        guard let pathToTropa = finder.findTropa(from: myCoordinate) else { return }
+        if let pathToPoint = finder.findPath(from: pathToTropa.first ?? myCoordinate, to: point) {
+            drawPath(path: pathToPoint + pathToTropa)
+        }
+    }
+    
+    func drawPath(path: [Coordinates]) {
+        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+        for coo in path {
+            let view = UIView(frame: CGRect(
+                x: CGFloat(coo.x) * mapImageView.frame.width / 100,
+                y: CGFloat(coo.y) * mapImageView.frame.height / 50,
+                width: mapImageView.frame.width / 100,
+                height: mapImageView.frame.height / 50
+            ))
+            view.alpha = 0.7
+            view.backgroundColor = UIColor.green
+            mapImageView.addSubview(view)
+            
+        }
     }
     
     func drawNet() {
