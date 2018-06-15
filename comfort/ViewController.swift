@@ -99,7 +99,7 @@ class ViewController: UIViewController {
                 x: CGFloat(coo.x) * mapImageView.frame.width / 100,
                 y: CGFloat(coo.y) * mapImageView.frame.height / 50,
                 width: mapImageView.frame.width / 100,
-                height: mapImageView.frame.height / 50
+                height: mapImageView.frame.height / 100
             ))
             view.alpha = 0.7
             view.backgroundColor = UIColor.green
