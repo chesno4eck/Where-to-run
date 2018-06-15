@@ -42,9 +42,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupScrollView()
         setupGestureRecognizer()
-        drawNet() 
-        writeToFile(value: "-----------\(Date())-----------")
+        //drawNet()
+        //writeToFile(value: "-----------\(Date())-----------")
         startLocatingMe()
+        //createAllPoints()
     }
     
     func drawNet() {
@@ -83,11 +84,16 @@ class ViewController: UIViewController {
         
         if let mac = currentlyConnectedMacAdress,
             let point = AccessPoints.valuesDict[mac] {
-            let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
-                                            y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
-                                            width: 160,
-                                            height: 160))
-            view.layer.cornerRadius = 80
+            
+            let scaleFactorByX = Int(mapImageView.frame.width)/100
+            let scaleFactorByY = Int(mapImageView.frame.height)/100
+            let pointRadius = 10
+            
+            let view = UIView(frame: CGRect(x: ((Int(point.0)) * scaleFactorByX - (pointRadius/2 * scaleFactorByX)),
+                                            y: ((Int(point.1)) * scaleFactorByY - (pointRadius/2 * scaleFactorByY)),
+                                            width: 2 * pointRadius * scaleFactorByX,
+                                            height: 2 * pointRadius * scaleFactorByX))
+            view.layer.cornerRadius = CGFloat(pointRadius * scaleFactorByX)
             view.layer.masksToBounds = true
             view.backgroundColor = UIColor.blue
             view.alpha = 0.4
@@ -154,21 +160,26 @@ extension ViewController {
     
 // DEBUG ZONE
     
-    /*
+    
     private func createAllPoints(){
-     for point in AccessPoints().valuesArray {
-     let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
-     y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
-     width: 160,
-     height: 160))
-     view.layer.cornerRadius = 80
-     view.layer.masksToBounds = true
-     view.backgroundColor = UIColor.blue
-     view.alpha = 0.4
-     mapImageView.addSubview(view)
-     }
-     }
-     */
+     for point in AccessPoints.valuesDict {
+        let scaleFactorByX = Int(mapImageView.frame.width)/100
+        let scaleFactorByY = Int(mapImageView.frame.height)/100
+        let pointRadius = 10
+        
+        let view = UIView(frame: CGRect(x: ((Int(point.value.0)) * scaleFactorByX - (pointRadius/2 * scaleFactorByX)),
+                                        y: ((Int(point.value.1)) * scaleFactorByY - (pointRadius/2 * scaleFactorByY)),
+                                        width: 2 * pointRadius * scaleFactorByX,
+                                        height: 2 * pointRadius * scaleFactorByX))
+        view.layer.cornerRadius = CGFloat(pointRadius * scaleFactorByX)
+        view.layer.masksToBounds = true
+        view.backgroundColor = UIColor.blue
+        view.alpha = 0.4
+        mapImageView.addSubview(view)
+        }
+        
+    }
+    
     
     /*
     private func writeToLog(){
