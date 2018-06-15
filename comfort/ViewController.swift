@@ -11,6 +11,7 @@ import NetworkExtension
 import SystemConfiguration.CaptiveNetwork
 
 class ViewController: UIViewController {
+    let finder = PathFinder()
     
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -45,8 +46,8 @@ class ViewController: UIViewController {
         drawNet()
         startLocatingMe()
         //createAllPoints()
-        
-        insertMyLocationIntoMap(x: 11, y: 24)
+//        insertMyLocationIntoMap(x: 11, y: 24)
+        finder.findPath(from: Coordinates(x: 11, y: 7), to: .lift)
     }
     
     func drawNet() {
@@ -138,7 +139,6 @@ class ViewController: UIViewController {
         if sender.state == .ended {
             let tapVertical = sender.location(in: mapImageView).y / mapImageView.frame.height * 50 * scrollView.zoomScale
             let tapHorizont = sender.location(in: mapImageView).x / mapImageView.frame.width * 100 * scrollView.zoomScale
-            print("\(tapHorizont), \(tapVertical)")
             if let mac = currentlyConnectedMacAdress {
                 writeToFile(value: "\(tapHorizont), \(tapVertical), \(mac)")
                 let view = UIView(frame: CGRect(x: sender.location(in: mapImageView).x - 20, y: sender.location(in: mapImageView).y - 20, width: 40, height: 40))
