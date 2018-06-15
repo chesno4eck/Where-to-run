@@ -15,6 +15,7 @@
 		596EBD1120D25D27007D4E8A /* comfortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1020D25D27007D4E8A /* comfortUITests.swift */; };
 		596EBD1C20D25E0F007D4E8A /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1B20D25E0F007D4E8A /* MainButton.swift */; };
 		596EBD1E20D25E82007D4E8A /* UIColor+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD1D20D25E82007D4E8A /* UIColor+Style.swift */; };
+		596EBD2220D3BC95007D4E8A /* FindPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EBD2120D3BC95007D4E8A /* FindPath.swift */; };
 		CB2FAEB620D290B300D6DA55 /* WriteDataToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2FAEB520D290B300D6DA55 /* WriteDataToFile.swift */; };
 		CB2FAEB820D2C3F600D6DA55 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2FAEB720D2C3F600D6DA55 /* Points.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		596EBD1220D25D27007D4E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		596EBD1B20D25E0F007D4E8A /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		596EBD1D20D25E82007D4E8A /* UIColor+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Style.swift"; sourceTree = "<group>"; };
+		596EBD2120D3BC95007D4E8A /* FindPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPath.swift; sourceTree = "<group>"; };
 		CB2FAEB520D290B300D6DA55 /* WriteDataToFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDataToFile.swift; sourceTree = "<group>"; };
 		CB2FAEB720D2C3F600D6DA55 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				596EBCFD20D25D25007D4E8A /* ViewController.swift */,
 				CB2FAEB720D2C3F600D6DA55 /* Points.swift */,
 				CB2FAEB520D290B300D6DA55 /* WriteDataToFile.swift */,
+				596EBD2120D3BC95007D4E8A /* FindPath.swift */,
 				596EBCFF20D25D25007D4E8A /* Main.storyboard */,
 				596EBD0220D25D27007D4E8A /* Assets.xcassets */,
 				596EBD0420D25D27007D4E8A /* LaunchScreen.storyboard */,
@@ -214,6 +217,7 @@
 				CB2FAEB620D290B300D6DA55 /* WriteDataToFile.swift in Sources */,
 				596EBD1C20D25E0F007D4E8A /* MainButton.swift in Sources */,
 				CB2FAEB820D2C3F600D6DA55 /* Points.swift in Sources */,
+				596EBD2220D3BC95007D4E8A /* FindPath.swift in Sources */,
 				596EBD1E20D25E82007D4E8A /* UIColor+Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,8 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupScrollView()
         setupGestureRecognizer()
-        //drawNet()
-        //writeToFile(value: "-----------\(Date())-----------")
+        drawNet()
         startLocatingMe()
         //createAllPoints()
     }
@@ -51,7 +50,7 @@ class ViewController: UIViewController {
     func drawNet() {
         mapImageView.subviews.forEach { $0.removeFromSuperview() }
         let net = netString.replacingOccurrences(of: "\n", with: "")
-        for y in 0..<100 {
+        for y in 0..<50 {
             for x in 0..<100 {
                 switch net[y * 100 + x] {
                 case "0":
@@ -59,9 +58,9 @@ class ViewController: UIViewController {
                 case "1":
                     let view = UIView(frame: CGRect(
                         x: CGFloat(x) * mapImageView.frame.width / 100,
-                        y: CGFloat(y) * mapImageView.frame.height / 100,
+                        y: CGFloat(y) * mapImageView.frame.height / 50,
                         width: mapImageView.frame.width / 100,
-                        height: mapImageView.frame.height / 100
+                        height: mapImageView.frame.height / 50
                     ))
                     view.backgroundColor = UIColor.brown
                     view.alpha = 0.7
@@ -86,7 +85,7 @@ class ViewController: UIViewController {
             let point = AccessPoints.valuesDict[mac] {
             
             let scaleFactorByX = Int(mapImageView.frame.width)/100
-            let scaleFactorByY = Int(mapImageView.frame.height)/100
+            let scaleFactorByY = Int(mapImageView.frame.height)/50
             let pointRadius = 10
             
             let view = UIView(frame: CGRect(x: ((Int(point.0)) * scaleFactorByX - (pointRadius/2 * scaleFactorByX)),
@@ -112,7 +111,7 @@ class ViewController: UIViewController {
     
     @objc func taps(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            let tapVertical = sender.location(in: mapImageView).y / mapImageView.frame.height * 100 * scrollView.zoomScale
+            let tapVertical = sender.location(in: mapImageView).y / mapImageView.frame.height * 50 * scrollView.zoomScale
             let tapHorizont = sender.location(in: mapImageView).x / mapImageView.frame.width * 100 * scrollView.zoomScale
             print("\(tapHorizont), \(tapVertical)")
             if let mac = currentlyConnectedMacAdress {
