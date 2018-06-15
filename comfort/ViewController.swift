@@ -42,9 +42,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupScrollView()
         setupGestureRecognizer()
-        
+        drawNet() 
         writeToFile(value: "-----------\(Date())-----------")
         startLocatingMe()
+    }
+    
+    func drawNet() {
+        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+        let net = netString.replacingOccurrences(of: "\n", with: "")
+        for y in 0..<100 {
+            for x in 0..<100 {
+                switch net[y * 100 + x] {
+                case "0":
+                    break
+                case "1":
+                    let view = UIView(frame: CGRect(
+                        x: CGFloat(x) * mapImageView.frame.width / 100,
+                        y: CGFloat(y) * mapImageView.frame.height / 100,
+                        width: mapImageView.frame.width / 100,
+                        height: mapImageView.frame.height / 100
+                    ))
+                    view.backgroundColor = UIColor.brown
+                    view.alpha = 0.7
+                    print(view.frame)
+                    mapImageView.addSubview(view)
+
+                default: break
+                }
+            }
+        }
     }
     
     private func setupScrollView(){
