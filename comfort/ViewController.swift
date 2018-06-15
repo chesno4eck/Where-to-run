@@ -55,9 +55,8 @@ class ViewController: UIViewController {
     private func highlightCurrentSector(){
         mapImageView.subviews.forEach { $0.removeFromSuperview() }
         
-        if let point = AccessPoints().valuesArray.filter({ (_,_,m) -> Bool in
-            m == currentlyConnectedMacAdress
-        }).first {
+        if let mac = currentlyConnectedMacAdress,
+            let point = AccessPoints.valuesDict[mac] {
             let view = UIView(frame: CGRect(x: ((Int(point.0)) * Int(mapImageView.frame.width))/100 - 80,
                                             y: ((Int(point.1)) * Int(mapImageView.frame.height))/100 - 80,
                                             width: 160,
