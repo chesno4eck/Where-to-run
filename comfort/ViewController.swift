@@ -52,21 +52,41 @@ class ViewController: UIViewController {
         let net = netString.replacingOccurrences(of: "\n", with: "")
         for y in 0..<50 {
             for x in 0..<100 {
+                let view = UIView(frame: CGRect(
+                    x: CGFloat(x) * mapImageView.frame.width / 100,
+                    y: CGFloat(y) * mapImageView.frame.height / 50,
+                    width: mapImageView.frame.width / 100,
+                    height: mapImageView.frame.height / 50
+                    ))
+                view.alpha = 0.7
+                
                 switch net[y * 100 + x] {
                 case "0":
                     break
-                case "1":
-                    let view = UIView(frame: CGRect(
-                        x: CGFloat(x) * mapImageView.frame.width / 100,
-                        y: CGFloat(y) * mapImageView.frame.height / 50,
-                        width: mapImageView.frame.width / 100,
-                        height: mapImageView.frame.height / 50
-                    ))
-                    view.backgroundColor = UIColor.brown
-                    view.alpha = 0.7
-                    print(view.frame)
+                case "1": // сетка
+                    view.backgroundColor = UIColor.lightGray
                     mapImageView.addSubview(view)
-
+                case "t": // туалет
+                    view.backgroundColor = UIColor.blue
+                    mapImageView.addSubview(view)
+                case "c": // кофе
+                    view.backgroundColor = UIColor.brown
+                    mapImageView.addSubview(view)
+                case "f": // футбол
+                    view.backgroundColor = UIColor.black
+                    mapImageView.addSubview(view)
+                case "k": // кухня
+                    view.backgroundColor = UIColor.yellow
+                    mapImageView.addSubview(view)
+                case "r": // раздевалка
+                    view.backgroundColor = UIColor.red
+                    mapImageView.addSubview(view)
+                case "l": // лифт
+                    view.backgroundColor = UIColor.green
+                    mapImageView.addSubview(view)
+                case "w": // way
+                    view.backgroundColor = UIColor.windowsBlue
+                    mapImageView.addSubview(view)
                 default: break
                 }
             }
