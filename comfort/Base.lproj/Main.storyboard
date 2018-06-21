@@ -40,35 +40,45 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aog-6N-opF"/>
                                 </connections>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B67-H0-vkL" userLabel="ButtonsView">
-                                <rect key="frame" x="0.0" y="64" width="414" height="250"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEz-aV-a0R">
+                                <rect key="frame" x="362.33333333333331" y="705.66666666666663" width="41.666666666666686" height="20.333333333333371"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.69803921570000005" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMt-AH-DmJ">
+                                <rect key="frame" x="0.0" y="64" width="414" height="284"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r84-0r-uDa">
-                                        <rect key="frame" x="10" y="10" width="394" height="230"/>
+                                        <rect key="frame" x="0.0" y="16" width="414" height="252"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-OS-DHU" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="42.666666666666664"/>
+                                                <rect key="frame" x="16" y="0.0" width="382" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Px8-hD-EES"/>
+                                                </constraints>
                                                 <state key="normal" title="Найти туалет"/>
                                                 <connections>
                                                     <action selector="buttonToiletPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BS2-MN-E3H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TD-TZ-fPf" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="62.666666666666657" width="394" height="42.333333333333343"/>
+                                                <rect key="frame" x="16" y="68" width="382" height="48"/>
                                                 <state key="normal" title="Найти кухню"/>
                                                 <connections>
                                                     <action selector="buttonKitchenPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xPK-te-oNI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-09-JSR" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="125.00000000000001" width="394" height="42.666666666666671"/>
+                                                <rect key="frame" x="16" y="136" width="382" height="48"/>
                                                 <state key="normal" title="Найти лифт"/>
                                                 <connections>
                                                     <action selector="buttonLiftPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R8e-bg-KuB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opP-gU-m4y" customClass="MainButton" customModule="comfort" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="187.66666666666669" width="394" height="42.333333333333343"/>
+                                                <rect key="frame" x="16" y="204" width="382" height="48"/>
                                                 <state key="normal" title="Найти раздевалку"/>
                                                 <connections>
                                                     <action selector="buttonLiftPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cBB-Wi-4KG"/>
@@ -78,42 +88,38 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" id="835-Ig-Tof"/>
-                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="FZZ-HC-V01"/>
-                                            <constraint firstItem="opP-gU-m4y" firstAttribute="leading" secondItem="6TD-TZ-fPf" secondAttribute="leading" id="V5g-TD-0Qe"/>
-                                            <constraint firstItem="6TD-TZ-fPf" firstAttribute="centerY" secondItem="r84-0r-uDa" secondAttribute="centerY" id="q1q-WL-SGx"/>
-                                            <constraint firstItem="6TD-TZ-fPf" firstAttribute="leading" secondItem="S0N-09-JSR" secondAttribute="leading" id="r8S-mj-XaT"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="leading" secondItem="r84-0r-uDa" secondAttribute="leading" constant="16" id="2FN-D2-bd6"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="height" secondItem="opP-gU-m4y" secondAttribute="height" id="AnB-Ft-0d0"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="height" secondItem="6TD-TZ-fPf" secondAttribute="height" id="Bu6-XJ-KUL"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="width" secondItem="6TD-TZ-fPf" secondAttribute="width" id="DBs-m1-Jdg"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="height" secondItem="S0N-09-JSR" secondAttribute="height" id="DEk-aN-qd3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vpq-OS-DHU" secondAttribute="trailing" constant="16" id="MTI-Ae-Elq"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="width" secondItem="opP-gU-m4y" secondAttribute="width" id="cMt-vr-Oy1"/>
+                                            <constraint firstItem="Vpq-OS-DHU" firstAttribute="width" secondItem="S0N-09-JSR" secondAttribute="width" id="o4C-nU-tWT"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="B67-H0-vkL" secondAttribute="top" constant="10" id="dhO-Dq-IpV"/>
-                                    <constraint firstAttribute="bottom" secondItem="r84-0r-uDa" secondAttribute="bottom" constant="10" id="gNX-0A-H9I"/>
-                                    <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="B67-H0-vkL" secondAttribute="leading" constant="10" id="kxq-Sb-Z9v"/>
-                                    <constraint firstAttribute="trailing" secondItem="r84-0r-uDa" secondAttribute="trailing" constant="10" id="seH-ID-Ic7"/>
-                                    <constraint firstAttribute="height" constant="250" id="uQE-kG-hlQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="r84-0r-uDa" secondAttribute="bottom" constant="16" id="ErA-Ok-WXd"/>
+                                    <constraint firstItem="r84-0r-uDa" firstAttribute="top" secondItem="fMt-AH-DmJ" secondAttribute="top" constant="16" id="fl1-YU-AOS"/>
+                                    <constraint firstAttribute="trailing" secondItem="r84-0r-uDa" secondAttribute="trailing" id="uRP-5e-IA1"/>
+                                    <constraint firstItem="r84-0r-uDa" firstAttribute="leading" secondItem="fMt-AH-DmJ" secondAttribute="leading" id="uh1-KI-eiT"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEz-aV-a0R">
-                                <rect key="frame" x="362.33333333333331" y="705.66666666666663" width="41.666666666666686" height="20.333333333333371"/>
-                                <color key="backgroundColor" red="0.3411764706" green="0.69803921570000005" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fMt-AH-DmJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="64M-yd-Ysi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HEz-aV-a0R" secondAttribute="trailing" constant="10" id="BpA-dh-Wd4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B67-H0-vkL" secondAttribute="trailing" id="Bwk-Ww-aeQ"/>
-                            <constraint firstItem="B67-H0-vkL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EFJ-R5-lco"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FQa-75-srg"/>
+                            <constraint firstItem="fMt-AH-DmJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JZ6-AN-MEN"/>
                             <constraint firstAttribute="trailing" secondItem="Eyb-rw-KE6" secondAttribute="trailing" id="fnf-dO-fcT"/>
+                            <constraint firstItem="fMt-AH-DmJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hbP-Vs-2FY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HEz-aV-a0R" secondAttribute="bottom" constant="10" id="jxf-VB-YIy"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kqt-nQ-DGK"/>
                             <constraint firstItem="Eyb-rw-KE6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="te8-kg-Tb0"/>
-                            <constraint firstItem="B67-H0-vkL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x6A-OM-niH"/>
+                            <constraint firstItem="HEz-aV-a0R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="z94-ay-VKn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -125,8 +131,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ButtonsView" destination="B67-H0-vkL" id="rG9-tB-rXt"/>
-                        <outlet property="buttonsStackView" destination="r84-0r-uDa" id="c6d-ZG-8c3"/>
+                        <outlet property="buttonsView" destination="fMt-AH-DmJ" id="BxD-vk-a0J"/>
                         <outlet property="lbl" destination="HEz-aV-a0R" id="5Aa-fu-nBg"/>
                         <outlet property="mapImageView" destination="Xld-DB-4fL" id="HUO-L5-y0h"/>
                         <outlet property="scrollView" destination="Eyb-rw-KE6" id="C6j-pU-hsC"/>
